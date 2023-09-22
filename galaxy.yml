@@ -16,7 +16,7 @@ readme: README.md
 # A list of the collection's content authors. Can be just the name or in the format 'Full Name <email> (url)
 # @nicks:irc/im.site#channel'
 authors:
-- Juraj Martini <juraj.martini@rokku.cz>
+- Juraj M 
 
 
 ### OPTIONAL but strongly recommended
@@ -40,7 +40,9 @@ tags: []
 # collection label 'namespace.name'. The value is a version range
 # L(specifiers,https://python-semanticversion.readthedocs.io/en/latest/#requirement-specification). Multiple version
 # range specifiers can be set and are separated by ','
-dependencies: '{veeamhub.veeam, community.vmware}'
+dependencies:
+    "veeamhub.hub": ">=1.5.0"
+    "community.vmware": ">=3.9.0"
 
 # The URL of the originating SCM repository
 repository: http://example.com/repository
