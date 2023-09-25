@@ -122,6 +122,7 @@ EXAMPLES = r'''
         var: delete_job
 '''
 
+
 def run_module():
     # define available arguments/parameters a user can pass to the module
     module_args = dict(
@@ -175,7 +176,6 @@ def run_module():
     state = module.params['state']
     request_server = module.params['server_name']
     request_port = module.params['server_port']
-    #print(jsonDefinition)
 
     # Authenticate
     request_username = module.params['server_username']
@@ -208,7 +208,7 @@ def run_module():
         backupRepositoryId = module.params['backupRepositoryId']
         daily_backup_enable = module.params['daily_backup_enable']
         daily_backup_localtime = module.params['daily_backup_localtime']
-     
+
         body = {
             "name": jobName,
             "description": description,
@@ -404,7 +404,6 @@ def run_module():
             }
         }
 
-  
         bodyjson = json.dumps(body)
         bodyjson = bodyjson.replace('\"[{\'hostName', '[{\'hostName')
         bodyjson = bodyjson.replace('\'VirtualMachine\'}]\"}', '\'VirtualMachine\'}]}')
@@ -421,7 +420,7 @@ def run_module():
 
         if info['status'] != 201:
             module.fail_json(msg="Fail: %s" % ("Status: " + str(info['status']) + ", Message: " + str(info['msg'])))
-        
+
         # Logout
         headers = {
             'x-api-version': apiversion,
@@ -460,7 +459,7 @@ def run_module():
 
             if info['status'] != 204:
                 module.fail_json(msg="Fail: %s" % ("Status: " + str(info['status']) + ", Message: " + str(info['msg'])))
-            
+
             # Logout
             headers = {
                 'x-api-version': apiversion,
