@@ -6,6 +6,7 @@ Documentation for the collection.
 This module was adjusted in order to create multi VM's backup jobs via Veeam REST API. 
 
 **Module input parameters:** 
+```
 server_username=dict(type='str', required=True),
 server_password=dict(type='str', required=True, no_log=True),
 server_port=dict(type='str', default='9419'),
@@ -19,11 +20,12 @@ description=dict(type='str', required=False),
 daily_backup_enable=dict(type='bool', required=False),
 daily_backup_localtime=dict(type='str', required=False),
 validate_certs=dict(type='bool', default='false')
+```
 
 Based on provided inputs parameters the body payload is composed. 
 
 # Usage example via ansible playbook veeam_create_job_multi.yml
-
+```
 - name: end-to-end create veeam job
   hosts: localhost
   gather_facts: false
@@ -99,5 +101,4 @@ Based on provided inputs parameters the body payload is composed.
     - name: Debug VBR Jobs Result
       ansible.builtin.debug:
         var: create_job
-
-
+```
